@@ -3,14 +3,14 @@ import { queryOptions } from "@tanstack/react-query";
 import { getProduct, listCategories, listProducts } from "./woo.functions";
 
 type ListArgs = {
-  page?: number;
-  perPage?: number;
-  category?: string;
-  search?: string;
-  orderby?: "date" | "price" | "popularity" | "rating" | "title";
-  order?: "asc" | "desc";
-  featured?: boolean;
-  onSale?: boolean;
+  page?: number | undefined;
+  perPage?: number | undefined;
+  category?: string | undefined;
+  search?: string | undefined;
+  orderby?: "date" | "price" | "popularity" | "rating" | "title" | undefined;
+  order?: "asc" | "desc" | undefined;
+  featured?: boolean | undefined;
+  onSale?: boolean | undefined;
 };
 
 export const productsQuery = (args: ListArgs = {}) =>
