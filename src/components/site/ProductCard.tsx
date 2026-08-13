@@ -1,11 +1,15 @@
 import { Link } from "@tanstack/react-router";
 import { Heart } from "lucide-react";
 
-import { formatPrice, stripHtml, type WooProduct } from "@/lib/woo-types";
+import { formatPrice, priceRangeLabel, stripHtml, type WooProduct } from "@/lib/woo-types";
 
 function PriceLine({ product }: { product: WooProduct }) {
   if (product.type === "variable" && product.price_html) {
-    return <span className="text-sm text-clay">{stripHtml(product.price_html)}</span>;
+    return (
+      <span className="text-sm text-clay">
+        {priceRangeLabel(product.price_html, product.price)}
+      </span>
+    );
   }
   if (product.on_sale && product.regular_price) {
     return (

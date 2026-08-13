@@ -7,7 +7,7 @@ import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
 import { ProductCard, ProductCardSkeleton } from "@/components/site/ProductCard";
 import { productQuery, productsQuery } from "@/lib/woo-queries";
-import { formatPrice, stripHtml, wooAddToCartUrl } from "@/lib/woo-types";
+import { formatPrice, priceRangeLabel, stripHtml, wooAddToCartUrl } from "@/lib/woo-types";
 
 export const Route = createFileRoute("/product/$slug")({
   head: ({ params }) => {
@@ -141,7 +141,7 @@ function ProductPage() {
               <div className="mt-5 flex items-center gap-4">
                 <p className="font-display text-2xl">
                   {product.type === "variable"
-                    ? stripHtml(product.price_html)
+                    ? priceRangeLabel(product.price_html, product.price)
                     : formatPrice(product.price)}
                 </p>
                 {product.on_sale && product.regular_price && product.type !== "variable" && (

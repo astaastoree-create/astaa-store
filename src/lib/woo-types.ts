@@ -67,6 +67,18 @@ export function stripHtml(html: string): string {
     .trim();
 }
 
+/** Variable products expose a price range in price_html; render it as a clean "$a – $b". */
+export function priceRangeLabel(priceHtml: string, fallback: string): string {
+  const matches = [...priceHtml.matchAll(/(\d+(?:[.,]\d{2})?)/g)].map((m) =>
+    Number.parseFloat(m[1].replace(",", ".")),
+  );
+  const values = matches.filter((n) => Number.isFinite(n) && n > 0);
+  if (values.length === 0) return formatPrice(fallback);
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  return min === max ? formatPrice(min) : `${formatPrice(min)} – ${formatPrice(max)}`;
+}
+
 /** WooCommerce checkout hand-off: adds the item and lands the user on the store cart. */
 export function wooAddToCartUrl(productId: number, quantity = 1): string {
   return `https://astaa.store/cart/?add-to-cart=${productId}&quantity=${quantity}`;

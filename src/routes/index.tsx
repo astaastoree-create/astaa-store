@@ -43,7 +43,15 @@ function Index() {
   const { data: trending } = useQuery(productsQuery({ perPage: 8, orderby: "popularity" }));
   const { data: fresh } = useQuery(productsQuery({ perPage: 4, orderby: "date" }));
 
-  const featuredCategories = (categories ?? []).filter((c) => c.image).slice(0, 4);
+  const PREFERRED = ["fashion", "gadgets", "beauty-care", "home-accessories"];
+  const withImages = (categories ?? []).filter((c) => c.image?.src);
+  const preferred = PREFERRED.map((slug) => withImages.find((c) => c.slug === slug)).filter(
+    (c): c is NonNullable<typeof c> => Boolean(c),
+  );
+  const featuredCategories = [
+    ...preferred,
+    ...withImages.filter((c) => !PREFERRED.includes(c.slug)),
+  ].slice(0, 4);
 
   return (
     <div className="min-h-screen">
