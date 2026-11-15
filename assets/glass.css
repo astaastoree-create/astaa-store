@@ -1,0 +1,231 @@
+/* ============================================================
+   ASTAA — CURVED GLASS SKIN (Dawn)
+   Loaded after base.css. Frosted glass surfaces over a fixed
+   gradient-mesh night sky.
+   ============================================================ */
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-bg-strong: rgba(255, 255, 255, 0.14);
+  --glass-border: rgba(255, 255, 255, 0.22);
+  --glass-blur: 20px;
+  --glass-radius: 28px;
+  --glass-radius-lg: 40px;
+  --glass-shadow: 0 24px 60px rgba(3, 6, 24, 0.45);
+  --glass-speed: 300ms;
+}
+
+/* ---------- Night-sky mesh backdrop ---------- */
+body {
+  background-color: #070b1f;
+  background-image:
+    radial-gradient(60vw 60vw at 12% 8%, rgba(124, 92, 255, 0.35), transparent 60%),
+    radial-gradient(50vw 50vw at 88% 15%, rgba(45, 212, 191, 0.22), transparent 60%),
+    radial-gradient(70vw 70vw at 50% 115%, rgba(255, 94, 168, 0.25), transparent 60%),
+    linear-gradient(180deg, #070b1f 0%, #0b1030 55%, #070b1f 100%) !important;
+  background-attachment: fixed;
+}
+
+/* Kill Dawn's flat gradient overlay so the mesh shows through */
+body::before,
+.gradient {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+/* ---------- Core glass surface ---------- */
+.glass-surface {
+  background: var(--glass-bg) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+/* ---------- Buttons: glass pills ---------- */
+.button,
+.shopify-challenge__button,
+.customer button {
+  border-radius: 999px !important;
+  border: 1px solid var(--glass-border) !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  letter-spacing: 0.08em;
+  transition: transform var(--glass-speed) ease, box-shadow var(--glass-speed) ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(3, 6, 24, 0.5) !important;
+}
+
+/* ---------- Header: floating glass pill ---------- */
+.header-wrapper {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.header {
+  background: var(--glass-bg) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--glass-shadow) !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  margin-top: 12px;
+}
+
+.header__menu-item,
+.header__active-menu-item {
+  border-radius: 999px;
+  transition: background var(--glass-speed) ease;
+}
+
+.header__menu-item:hover span {
+  text-decoration: none;
+}
+
+.header__menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.header__active-menu-item {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.header__icon,
+.header__menu-item span {
+  color: #f5f7ff;
+}
+
+/* ---------- Mega menu + dropdowns: curved glass panels ---------- */
+.mega-menu__content,
+.header__submenu {
+  background: rgba(10, 14, 38, 0.72) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--glass-radius-lg) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+.mega-menu__content {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  padding: 28px 32px !important;
+}
+
+.header__submenu .header__menu-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+}
+
+/* ---------- Cards: frosted, curved ---------- */
+.card,
+.card__inner,
+.card--standard > .card__content,
+.multicolumn-card {
+  border-radius: var(--glass-radius) !important;
+}
+
+.card__inner {
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transition: transform var(--glass-speed) ease, box-shadow var(--glass-speed) ease;
+}
+
+.card:hover .card__inner {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 34px 80px rgba(3, 6, 24, 0.55);
+}
+
+.card__content {
+  background: transparent !important;
+}
+
+.card__heading,
+.card-information__text,
+.price {
+  color: #f5f7ff;
+}
+
+/* ---------- Slideshow: glass text panel, auto-slide ---------- */
+.slideshow__text.banner__box {
+  background: var(--glass-bg) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--glass-radius-lg) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+.slideshow__controls {
+  background: rgba(10, 14, 38, 0.6) !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 999px !important;
+}
+
+.slideshow__text-wrapper {
+  padding-bottom: 4rem;
+}
+
+/* ---------- Sections: breathing room on glass ---------- */
+.shopify-section-group-header-group .section-header {
+  margin-bottom: 0;
+}
+
+.footer {
+  background: rgba(7, 11, 31, 0.6) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border-top: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius-lg) var(--glass-radius-lg) 0 0;
+}
+
+.footer__content-top {
+  padding-top: 4rem;
+}
+
+/* ---------- Drawers / modals ---------- */
+.drawer,
+.cart-drawer,
+details-modal .search__modal {
+  border-radius: var(--glass-radius-lg) !important;
+}
+
+.drawer__inner {
+  border-radius: var(--glass-radius-lg) !important;
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  border-radius: 999px !important;
+  border: 1px solid var(--glass-border) !important;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* ---------- Mobile: lighter blur for performance ---------- */
+@media screen and (max-width: 989px) {
+  :root {
+    --glass-blur: 12px;
+    --glass-radius: 22px;
+    --glass-radius-lg: 28px;
+  }
+
+  .mega-menu__content {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .card__inner {
+    transition: none;
+  }
+}

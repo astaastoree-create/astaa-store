@@ -1,0 +1,152 @@
+{
+  "sections": {
+    "hero": {
+      "type": "slideshow",
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "heading": "New Arrival",
+            "subheading": "Fresh drops every week",
+            "button_label": "Shop new arrivals",
+            "link": "shopify://collections/all",
+            "box_align": "middle-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "show_text_box": true,
+            "image_overlay_opacity": 30,
+            "color_scheme": "scheme-1"
+          }
+        },
+        "slide-2": {
+          "type": "slide",
+          "settings": {
+            "heading": "This Week Trending",
+            "subheading": "The finds everyone is discovering",
+            "button_label": "See what's trending",
+            "link": "shopify://collections/all",
+            "box_align": "middle-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "show_text_box": true,
+            "image_overlay_opacity": 30,
+            "color_scheme": "scheme-1"
+          }
+        },
+        "slide-3": {
+          "type": "slide",
+          "settings": {
+            "heading": "Mega Shop",
+            "subheading": "Gadget, home, beauty and fashion — all in one place",
+            "button_label": "Browse the mega shop",
+            "link": "shopify://collections/all",
+            "box_align": "middle-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "show_text_box": true,
+            "image_overlay_opacity": 30,
+            "color_scheme": "scheme-1"
+          }
+        }
+      },
+      "block_order": ["slide-1", "slide-2", "slide-3"],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": "Astaa Store highlights"
+      }
+    },
+    "categories": {
+      "type": "collection-list",
+      "blocks": {
+        "cat-1": { "type": "featured_collection", "settings": {} },
+        "cat-2": { "type": "featured_collection", "settings": {} },
+        "cat-3": { "type": "featured_collection", "settings": {} },
+        "cat-4": { "type": "featured_collection", "settings": {} }
+      },
+      "block_order": ["cat-1", "cat-2", "cat-3", "cat-4"],
+      "settings": {
+        "title": "Gadget · Home · Beauty · Fashion",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "show_view_all": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 36
+      }
+    },
+    "trending": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "This Week Trending",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "swipe_on_mobile": true,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "trust": {
+      "type": "multicolumn",
+      "blocks": {
+        "trust-1": {
+          "type": "column",
+          "settings": { "title": "Fast delivery", "text": "Dispatched within 24 hours" }
+        },
+        "trust-2": {
+          "type": "column",
+          "settings": { "title": "Easy returns", "text": "7-day return policy" }
+        },
+        "trust-3": {
+          "type": "column",
+          "settings": { "title": "24/7 support", "text": "Chat with us anytime" }
+        },
+        "trust-4": {
+          "type": "column",
+          "settings": { "title": "Secure checkout", "text": "Cards, wallets and COD" }
+        }
+      },
+      "block_order": ["trust-1", "trust-2", "trust-3", "trust-4"],
+      "settings": {
+        "title": "The Astaa promise",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 56
+      }
+    }
+  },
+  "order": ["hero", "categories", "trending", "trust"]
+}
